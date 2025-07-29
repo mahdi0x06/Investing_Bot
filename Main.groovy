@@ -1,10 +1,3 @@
-function myFunction() {
-  var hash_value = simpleHash("سلام")
-  var message = giveMessage(hash_value)
-  Logger.log(hash_value)
-  Logger.log(message)
-}
-
 function simpleHash(str) {
   var hash = 0;
   for (var i = 0; i < str.length; i++) {
@@ -49,15 +42,8 @@ function doPost(e) {
   var sender_id = contents.message.from.id; 
 
   var text = contents.message.text;
-// if (contents.message && contents.message.photo) {
-//   var photos = contents.message.photo;
-//   var lastPhoto = photos[photos.length - 1]; // بزرگ‌ترین سایز
-//   var fileId = lastPhoto.file_id;
-//   var chatId = contents.message.chat.id;
-
-//   sendMessage(chatId, "آیدی عکس شما:\n" + fileId);
-// }
   
+  //triggers
   if(text) {
     if(text.includes(" شاهکار")){
       sendSticker(chat_id, "CAACAgQAAxkBAAMgaIFHWJyYRMnMPCzOSe3DRyfnKvUAAiAPAAJc1SlTMtqMjLN7l3g2BA")
@@ -118,6 +104,9 @@ function doPost(e) {
       }
     }
 }
+
+//added this to maximize extensibility (nemidonam spellesh doroste ya na)
+
 // for (let key in reactions) {
 //   if (text.includes(key)) {
 //     sendMessage(chat_id, reactions[key]);
